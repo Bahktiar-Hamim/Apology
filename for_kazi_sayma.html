@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Kazi Sayma 🤍</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    font-family: Georgia, "Times New Roman", serif;
+    background: linear-gradient(135deg, #f8e8e8, #f5f1ec, #eadfe4);
+    color: #3f3338;
+  }
+  .card {
+    width: min(680px, 100%);
+    background: rgba(255,255,255,.88);
+    border-radius: 24px;
+    padding: 42px 34px;
+    box-shadow: 0 18px 55px rgba(70,45,55,.16);
+    text-align: center;
+    animation: appear 1s ease;
+  }
+  .heart { font-size: 42px; margin-bottom: 8px; }
+  h1 { margin: 0 0 8px; font-size: 34px; font-weight: 500; }
+  .subtitle { color: #8a6d78; font-style: italic; margin-bottom: 30px; }
+  .letter {
+    text-align: left;
+    line-height: 1.8;
+    font-size: 17px;
+    background: #fffaf9;
+    border-radius: 18px;
+    padding: 26px;
+    border: 1px solid #f0dddd;
+  }
+  .letter p { margin: 0 0 18px; }
+  .letter p:last-child { margin-bottom: 0; }
+  .plea {
+    margin: 28px 0 20px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #775462;
+  }
+  button {
+    border: 0;
+    border-radius: 999px;
+    padding: 14px 27px;
+    font-size: 16px;
+    cursor: pointer;
+    background: #775462;
+    color: white;
+    box-shadow: 0 8px 20px rgba(119,84,98,.25);
+    transition: transform .2s, opacity .2s;
+  }
+  button:hover { transform: translateY(-2px); }
+  #forgiven {
+    display: none;
+    margin-top: 22px;
+    color: #775462;
+    font-size: 20px;
+    animation: appear .7s ease;
+  }
+  .small { margin-top: 25px; color: #a18c94; font-size: 13px; }
+  @keyframes appear {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+  <main class="card">
+    <div class="heart">🤍</div>
+    <h1>For Kazi Sayma</h1>
+    <div class="subtitle">A little letter I really needed you to read.</div>
+
+    <section class="letter">
+      <p>Sayma,</p>
+      <p>I’m truly sorry for what I said. I know my words hurt you, and honestly, I wish I could take those words back, but I know I can’t.</p>
+      <p>You mean so much more to me than my stupid moment of anger or thoughtlessness ever showed. I deeply regret hurting someone I care about this much.</p>
+      <p>I just hope, with all my heart, that you can eventually forgive me. I know I can’t erase what happened, but I promise I’ll learn from it and be more thoughtful with your feelings from now on. I really don’t want one terrible moment to ruin a friendship that means so much to me.</p>
+      <p>I’m genuinely sad that I hurt you, and I regret saying something I never should have said. You didn’t deserve that from me.</p>
+    </section>
+
+    <div class="plea">Please forgive me. 🥺</div>
+    <button onclick="forgive()">I forgive you 🤍</button>
+
+    <div id="forgiven">Thank you, Sayma. That genuinely means a lot to me. 🤍</div>
+    <div class="small">Made with a very sincere apology.</div>
+  </main>
+
+<script>
+function forgive() {
+  document.getElementById("forgiven").style.display = "block";
+}
+</script>
+</body>
+</html>
