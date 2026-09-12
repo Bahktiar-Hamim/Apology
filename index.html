@@ -1,433 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>For Kazi Sayma 🤍</title>
+  <title>For Kazi Sayma 🤍</title>
 
-<!-- Supabase -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<style>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-* {
-  box-sizing: border-box;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
 
-body {
-  margin: 0;
-  min-height: 100vh;
+      font-family: Georgia, "Times New Roman", serif;
+      color: #3f3338;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+      background:
+        linear-gradient(
+          135deg,
+          #f8e8e8,
+          #f5f1ec,
+          #eadfe4
+        );
+    }
 
-  padding: 24px;
+    .card {
+      width: 100%;
+      max-width: 680px;
 
-  font-family: Georgia, "Times New Roman", serif;
+      background: rgba(255, 255, 255, 0.94);
 
-  background:
-    linear-gradient(
-      135deg,
-      #f8e8e8,
-      #f5f1ec,
-      #eadfe4
-    );
+      border-radius: 24px;
+      padding: 40px 32px;
 
-  color: #3f3338;
-}
+      text-align: center;
 
-.card {
+      box-shadow:
+        0 18px 55px rgba(70, 45, 55, 0.16);
+    }
 
-  width: min(680px, 100%);
+    .heart {
+      font-size: 44px;
+      margin-bottom: 8px;
+    }
 
-  background: rgba(255, 255, 255, 0.90);
+    h1 {
+      margin: 0;
+      font-size: 34px;
+      font-weight: 500;
+    }
 
-  border-radius: 24px;
+    .subtitle {
+      margin-top: 10px;
+      margin-bottom: 28px;
 
-  padding: 42px 34px;
+      color: #8a6d78;
+      font-style: italic;
+    }
 
-  box-shadow:
-    0 18px 55px rgba(70, 45, 55, 0.16);
+    .letter {
+      padding: 26px;
 
-  text-align: center;
+      text-align: left;
+      line-height: 1.8;
+      font-size: 17px;
 
-  animation: appear 1s ease;
-}
+      background: #fffaf9;
 
-.heart {
+      border: 1px solid #f0dddd;
+      border-radius: 18px;
+    }
 
-  font-size: 42px;
+    .letter p {
+      margin: 0 0 18px;
+    }
 
-  margin-bottom: 8px;
-}
+    .letter p:last-child {
+      margin-bottom: 0;
+    }
 
-h1 {
+    .plea {
+      margin: 28px 0 20px;
 
-  margin: 0 0 8px;
+      font-size: 24px;
+      font-weight: 600;
 
-  font-size: 34px;
+      color: #775462;
+    }
 
-  font-weight: 500;
-}
+    button {
+      border: none;
+      border-radius: 999px;
 
-.subtitle {
+      padding: 14px 28px;
 
-  color: #8a6d78;
+      font-family: inherit;
+      font-size: 16px;
 
-  font-style: italic;
+      cursor: pointer;
 
-  margin-bottom: 30px;
-}
+      color: white;
+      background: #775462;
 
-.letter {
+      box-shadow:
+        0 8px 20px rgba(119, 84, 98, 0.25);
 
-  text-align: left;
+      transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+    }
 
-  line-height: 1.8;
+    button:hover {
+      transform: translateY(-2px);
+    }
 
-  font-size: 17px;
+    button:disabled {
+      cursor: default;
+      opacity: 0.65;
+    }
 
-  background: #fffaf9;
+    #forgiven {
+      display: none;
 
-  border-radius: 18px;
+      margin-top: 22px;
 
-  padding: 26px;
+      color: #775462;
+      font-size: 20px;
+    }
 
-  border: 1px solid #f0dddd;
-}
+    .small {
+      margin-top: 26px;
 
-.letter p {
+      color: #a18c94;
+      font-size: 13px;
+    }
 
-  margin: 0 0 18px;
-}
+    @media (max-width: 600px) {
+      body {
+        padding: 16px;
+      }
 
-.letter p:last-child {
+      .card {
+        padding: 30px 20px;
+        border-radius: 20px;
+      }
 
-  margin-bottom: 0;
-}
+      h1 {
+        font-size: 29px;
+      }
 
-.plea {
+      .letter {
+        padding: 21px;
+        font-size: 16px;
+        line-height: 1.75;
+      }
 
-  margin: 28px 0 20px;
-
-  font-size: 24px;
-
-  font-weight: 600;
-
-  color: #775462;
-}
-
-button {
-
-  border: none;
-
-  border-radius: 999px;
-
-  padding: 14px 28px;
-
-  font-size: 16px;
-
-  cursor: pointer;
-
-  background: #775462;
-
-  color: white;
-
-  box-shadow:
-    0 8px 20px rgba(119, 84, 98, 0.25);
-
-  transition:
-    transform 0.2s ease,
-    opacity 0.2s ease;
-}
-
-button:hover {
-
-  transform: translateY(-2px);
-}
-
-button:disabled {
-
-  opacity: 0.65;
-
-  cursor: default;
-}
-
-#forgiven {
-
-  display: none;
-
-  margin-top: 22px;
-
-  color: #775462;
-
-  font-size: 20px;
-
-  animation: appear 0.7s ease;
-}
-
-.small {
-
-  margin-top: 25px;
-
-  color: #a18c94;
-
-  font-size: 13px;
-}
-
-@keyframes appear {
-
-  from {
-
-    opacity: 0;
-
-    transform: translateY(12px);
-  }
-
-  to {
-
-    opacity: 1;
-
-    transform: translateY(0);
-  }
-}
-
-</style>
-
+      .plea {
+        font-size: 22px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+  <main class="card">
 
-<main class="card">
+    <div class="heart">🤍</div>
 
+    <h1>For Kazi Sayma</h1>
 
-  <div class="heart">
-    🤍
-  </div>
+    <div class="subtitle">
+      A little letter I really needed you to read.
+    </div>
 
+    <section class="letter">
 
-  <h1>
-    For Kazi Sayma
-  </h1>
-
-
-  <div class="subtitle">
-    A little letter I really needed you to read.
-  </div>
-
-
-  <section class="letter">
-
-
-    <p>
-      Sayma,
-    </p>
-
-
-    <p>
-      I’m truly sorry for what I said.
-      I know my words hurt you, and honestly,
-      I wish I could take those words back,
-      but I know I can’t.
-    </p>
-
-
-    <p>
-      You mean so much more to me than my stupid
-      moment of anger or thoughtlessness ever showed.
-      I deeply regret hurting someone I care about
-      this much.
-    </p>
-
-
-    <p>
-      I just hope, with all my heart, that you can
-      eventually forgive me. I know I can’t erase
-      what happened, but I promise I’ll learn from it
-      and be more thoughtful with your feelings from
-      now on.
-    </p>
-
-
-    <p>
-      I really don’t want one terrible moment to ruin
-      a friendship that means so much to me.
-    </p>
-
-
-    <p>
-      I’m genuinely sad that I hurt you, and I regret
-      saying something I never should have said.
-      You didn’t deserve that from me.
-    </p>
-
-
-  </section>
-
-
-  <div class="plea">
-
-    Please forgive me. 🥺
-
-  </div>
-
-
-  <button
-    id="forgiveBtn"
-    onclick="forgive()">
-
-    I forgive you 🤍
-
-  </button>
-
-
-  <div id="forgiven">
-
-    Thank you, Sayma.
-    That genuinely means a lot to me. 🤍
-
-  </div>
-
-
-  <div class="small">
-
-    Made with a very sincere apology.
-
-  </div>
-
-
-</main>
-
-
-
-<script>
-
-
-/*
-  YOUR SUPABASE PROJECT
-*/
-
-const SUPABASE_URL =
-  "https://vifdxiajjunosanhsqml.supabase.co";
-
-
-const SUPABASE_KEY =
-  "sb_publishable_HVJdKRuZkkxI9zSCy5mokA_JYDnMwP8";
-
-
-/*
-  Connect to Supabase
-*/
-
-const db = supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_KEY
-);
-
-
-
-/*
-  What happens when
-  "I forgive you" is clicked
-*/
-
-async function forgive() {
-
-
-  const button =
-    document.getElementById("forgiveBtn");
-
-
-  /*
-    Temporarily disable the button
-  */
-
-  button.disabled = true;
-
-  button.textContent =
-    "Saving... 🤍";
-
-
-  /*
-    Record the click
-    in your Supabase database
-  */
-
-  const { error } = await db
-    .from("forgiveness_clicks")
-    .insert([
-      {
-        action: "I forgive you"
-      }
-    ]);
-
-
-  /*
-    If something goes wrong
-  */
-
-  if (error) {
-
-    console.error(
-      "Supabase error:",
-      error
-    );
-
-    button.disabled = false;
-
-    button.textContent =
-      "I forgive you 🤍";
-
-    alert(
-      "Something went wrong. Please try again."
-    );
-
-    return;
-  }
-
-
-  /*
-    Successful click
-  */
-
-  button.style.display =
-    "none";
-
-
-  document.getElementById("forgiven")
-    .style.display = "block";
-
-
-}
-
-
-</script>
-
-
-</body>
-</html>    <section class="letter">
       <p>Sayma,</p>
-      <p>I’m truly sorry for what I said. I know my words hurt you, and honestly, I wish I could take those words back, but I know I can’t.</p>
-      <p>You mean so much more to me than my stupid moment of anger or thoughtlessness ever showed. I deeply regret hurting someone I care about this much.</p>
-      <p>I just hope, with all my heart, that you can eventually forgive me. I know I can’t erase what happened, but I promise I’ll learn from it and be more thoughtful with your feelings from now on. I really don’t want one terrible moment to ruin a friendship that means so much to me.</p>
-      <p>I’m genuinely sad that I hurt you, and I regret saying something I never should have said. You didn’t deserve that from me.</p>
+
+      <p>
+        I’m truly sorry for what I said. I know my words hurt you,
+        and honestly, I wish I could take those words back, but I know I can’t.
+      </p>
+
+      <p>
+        You mean so much more to me than my stupid moment of anger or
+        thoughtlessness ever showed. I deeply regret hurting someone I care
+        about this much.
+      </p>
+
+      <p>
+        I just hope, with all my heart, that you can eventually forgive me.
+        I know I can’t erase what happened, but I promise I’ll learn from it
+        and be more thoughtful with your feelings from now on.
+        I really don’t want one terrible moment to ruin a friendship that
+        means so much to me.
+      </p>
+
+      <p>
+        I’m genuinely sad that I hurt you, and I regret saying something
+        I never should have said. You didn’t deserve that from me.
+      </p>
+
     </section>
 
-    <div class="plea">Please forgive me. 🥺</div>
-    <button onclick="forgive()">I forgive you 🤍</button>
+    <div class="plea">
+      Please forgive me. 🥺
+    </div>
 
-    <div id="forgiven">Thank you, Sayma. That genuinely means a lot to me. 🤍</div>
-    <div class="small">Made with a very sincere apology.</div>
+    <button id="forgiveBtn">
+      I forgive you 🤍
+    </button>
+
+    <div id="forgiven">
+      Thank you, Sayma. That genuinely means a lot to me. 🤍
+    </div>
+
+    <div class="small">
+      Made with a very sincere apology.
+    </div>
+
   </main>
 
-<script>
-function forgive() {
-  document.getElementById("forgiven").style.display = "block";
-}
-</script>
+
+  <script>
+
+    // Supabase configuration
+    const SUPABASE_URL =
+      "https://vifdxiajjunosanhsqml.supabase.co";
+
+    const SUPABASE_KEY =
+      "sb_publishable_HVJdKRuZkkxI9zSCy5mokA_JYDnMwP8";
+
+    const db = supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_KEY
+    );
+
+
+    // Forgiveness button
+    document
+      .getElementById("forgiveBtn")
+      .addEventListener("click", async function () {
+
+        const button = this;
+
+        button.disabled = true;
+        button.textContent = "Saving... 🤍";
+
+
+        const { error } = await db
+          .from("forgiveness_clicks")
+          .insert([
+            {
+              action: "I forgive you"
+            }
+          ]);
+
+
+        if (error) {
+
+          console.error("Supabase error:", error);
+
+          button.disabled = false;
+          button.textContent = "I forgive you 🤍";
+
+          alert(
+            "Something went wrong. Please try again."
+          );
+
+          return;
+        }
+
+
+        // Hide button
+        button.style.display = "none";
+
+
+        // Show thank-you message
+        document
+          .getElementById("forgiven")
+          .style.display = "block";
+
+      });
+
+  </script>
+
 </body>
 </html>
